@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.moos.selector.MainActivity">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@android:color/black">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@mipmap/eyebrows"/>
+    </android.support.v7.widget.Toolbar>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_margin="12dp"
+        app:cardBackgroundColor="@android:color/white"
+        android:layout_below="@+id/toolbar">
+        <ImageView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/plus_icon"
+            android:layout_gravity="center"
+            android:tint="#a9a9a9"/>
+        <ImageView
+            android:id="@+id/image_selected"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:scaleType="centerCrop" />
+    </android.support.v7.widget.CardView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cardView"
+        android:padding="12dp"
+        android:textSize="14sp"
+        android:textColor="#a6a6a6"
+        android:lineSpacingExtra="6dp"
+        android:textStyle="bold|italic"
+        android:text="1. 采用Android系统自带方式并适配了Android7.0系统；
+                      \n2. 支持拍照获取和本地图库获取图片；
+                      \n3. 支持自定义裁剪图片的区域比例和图片输出质量；
+                      \n4. 建造者模式两行代码搞定图片的获取和裁剪；
+                      \n5. 支持自定义图片的输出路径。"/>
+    <Button
+        android:id="@+id/btn_select"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#eaeaea"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="12dp"
+        android:padding="15dp"
+        android:textColor="#343434"
+        android:textSize="16sp"
+        android:text="选择图片"/>
+
+</RelativeLayout>
