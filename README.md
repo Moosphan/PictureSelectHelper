@@ -13,6 +13,50 @@ A util for android to crop the picture in the phone by system owned way.
 - 建造者模式两行代码搞定图片的获取和裁剪；
 - 支持自定义图片的输出路径
 
+### 使用
+
+1. 创建builder：
+
+   ```
+   SystemPictureSelector.Builder builder = new SystemPictureSelector.Builder(this);
+   builder.isCropped(true)
+           .setCropSize(3, 2)
+           .setOutputSize(1200, 1200)
+           .setOutputPath(savedPath)
+           .setOnSelectListener(new SystemPictureSelector.OnSystemPictureSelectListener() {
+               @Override
+               public void onSelectedSuccess(File file) {
+
+                   Uri uri = Uri.fromFile(file);
+                   Log.e(TAG, "onSelectedSuccess: "+uri.toString() );
+               }
+
+               @Override
+               public void onSelectedMessage(String msg) {
+
+                   Toast.makeText(MainActivity.this, msg, Toast.LENGTH_LONG).show();
+               }
+           });
+   pictureSelector = builder.create();
+   ```
+
+2. 调起系统camera或者本地图库：
+
+   ```
+   pictureSelector.getSystemPhotoByCamera(); // 通过拍照获取图片
+   ......
+   pictureSelector.getSystemPhotoByGallery();// 通过本地图库获取
+   ```
+
+3. 绑定onActivityResult方法：
+
+   ```
+   @Override
+   protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+       pictureSelector.bindingActivityForResult(requestCode, resultCode, data);
+   }
+   ```
+
 ### 关于我
 
 邮箱：moosphon@gmail.com
